@@ -28,13 +28,13 @@ router.put("/api/workouts/:id", (req, res) => {
 // Data to exercise page (creating new workout)
 router.post("/api/workouts", (req,res) => {
     console.log("We hit the POST route!");
-    // Workout.insert(req.body)
-    // .then(newWorkout => {
-    //     res.json(newWorkout);
-    // })
-    // .catch(err => {
-    //     res.status(400).json(err);
-    // });
+    Workout.create({day:Date.now()})
+    .then(newWorkout => {
+        res.json(newWorkout);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    });
 })
 
 // Data to stats page
