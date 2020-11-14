@@ -12,28 +12,34 @@ var workoutSchema = new Schema({
     },
     type: {
         type: String,
-        required: true
+        required: true,
+        default: "resistance"
     },
     name: {
         type: String,
         trim: true,
-        required: "String is Required"
+        required: "String is Required",
+        default: "Bench Press"
     },
     duration: {
         type: Number,
-        required: true
+        required: true,
+        default: 20
     },
     weight: {
         type: Number,
-        required: true
+        required: true,
+        default: 250
     },
     reps: {
         type: Number,
-        required: true
+        required: true,
+        default: 20
     },
     sets: {
         type: Number,
-        required: true
+        required: true,
+        default: 4
     }
 });
 
