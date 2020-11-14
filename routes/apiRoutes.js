@@ -6,6 +6,7 @@ const Workout = require("../models/workout.js");
 // Data to main page
 router.get("/api/workouts", (req,res) => {
     Workout.find({})
+    .sort({day: 1})
     .then(lastWorkout => {
         res.json(lastWorkout);
     })
@@ -27,8 +28,7 @@ router.put("/api/workouts/:id", (req, res) => {
 
 // Data to exercise page (creating new workout)
 router.post("/api/workouts", (req,res) => {
-    console.log("We hit the POST route!");
-    Workout.create({day:Date.now()})
+    Workout.create(req.body)
     .then(newWorkout => {
         res.json(newWorkout);
     })
